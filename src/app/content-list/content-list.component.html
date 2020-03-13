@@ -1,0 +1,42 @@
+<div class="parent">
+
+    <app-create-content [contentArray]="contentArray" ></app-create-content>
+    <hr>
+    <hr>
+    Input the title: <input [(ngModel)]="checkTitle" >
+    <br><br>
+    <input type="button" value="Check" (click)="CheckTitle()">
+    <br>
+
+ <div  *ngFor="let item of (contentArray | filterType:'Horror')" [class.story]="item" >
+     <!--<div  *ngFor="let item of contentArray " [class.story]="item" >-->
+
+     <!--<img src="{{item.imgUrl}}" alt="logo image" (click)="OutputToConsole(item)"><br>-->
+     <img src='{{item.imgUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM_wu5hi_TKCk09gXZh2uIWuL_czZH62NEt-XXYVWYAcQaSO1c5Q"}}' height="200" alt="logo image" (click)="OutputToConsole(item)"><br>
+     <span appAttributeDirective [elementMe]='"underline"' >Title:{{item.title}}</span><br>
+      Body:{{item.body}}<br>
+      ContentId: {{item.id}}<br>
+      Author: {{item.author}}<br>
+      Type:{{item.type}}<br>
+     <span appAttributeDirective [elementMe]='"bold"'>{{getTag(item)}}</span><br><br>
+     <input type="button" value="Edit"    (click)="Edit(item)">&nbsp;&nbsp;
+     <input type="button" value="Delete" (click)="DeleteContent(item)">
+
+
+      <hr>
+
+  </div>
+    <!--<br>-->
+    <!--<div  *ngFor="let item of (contentArray | filterType:'Horror') " [class.story]="item" >-->
+        <!--<img src='{{item.imgUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM_wu5hi_TKCk09gXZh2uIWuL_czZH62NEt-XXYVWYAcQaSO1c5Q"}}' height="200" alt="logo image" (click)="OutputToConsole(item)"><br>-->
+        <!--<span appAttributeDirective [elementMe]='"underline"'>Title:{{item.title}}</span><br>-->
+        <!--Body:{{item.body}}<br>-->
+        <!--ContentId: {{item.id}}<br>-->
+        <!--Author: {{item.author}}<br>-->
+        <!--Type:{{item.type}}<br>-->
+        <!--<span appAttributeDirective [elementMe]='"bold"'>{{getTag(item)}}</span><br><br>-->
+        <!--<input type="button" value="Edit"  (click)="Edit(item)">-->
+        <!--<hr>-->
+
+    <!--</div>-->
+</div>
